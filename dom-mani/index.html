@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+      }
+      #taskInput {
+        padding: 10px;
+        margin-right: 10px;
+      }
+      #addTaskBtn {
+        padding: 10px;
+      }
+      .task {
+        padding: 10px;
+        margin: 10px 0;
+        background: #f0f0f0;
+        border-radius: 4px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .done {
+        text-decoration: line-through;
+        color: gray;
+      }
+      .deleteBtn {
+        background-color: red;
+        color: white;
+        padding: 4px 8px;
+        border: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Task Manager</h1>
+    <input id="taskInput" type="text" placeholder="Enter your task" />
+    <button id="addTaskBtn">Add Task</button>
+
+    <h3>Total Tasks : <span id="taskCount">0</span></h3>
+    <div id="taskContainer"></div>
+    <script>
+      let taskInput = document.querySelector("#taskInput");
+      let add_task_btn = document.querySelector("#addTaskBtn");
+      let task_Container = document.querySelector("#taskContainer");
+      let task_count = document.getElementById("taskCount");
+
+      let taskCount = 0;
+
+      add_task_btn.addEventListener("click", function () {
+        let taskValue = taskInput.value().trim();
+
+        if (taskValue === 0) {
+          return;
+        }
+
+        const taskDiv = document.createElement("div");
+        taskDiv.classList.add("task");
+
+        taskDiv.innerHTML = `
+                <span class="taskText">${taskInput}</span>
+                <button class="deleteBtn">Delete</button>
+            `;
+
+        //hoverEffect
+        taskDiv.addEventListener("mouseover", function () {
+          taskDiv.style.backgroundColor = "#d1f7c4";
+        });
+        taskDiv.addEventListener("mouseleave", function () {
+          taskDiv.style.backgroundColor = "#f0f0f0";
+        });
+
+        taskDiv
+          .querySelector(".taskText")
+          .addEventListener("click", function () {
+            e.target.classList.toggle("done");
+          });
+
+        taskDiv
+          .querySelector(".deleteBtn")
+          .addEventListener("click", function () {
+            taskDiv.remove();
+            taskCount--;
+            updateCount();
+          });
+
+        taskContainer.appendChild(taskDiv);
+        taskInput.value = "";
+        taskCount++;
+        updateCount();
+      });
+
+      function updateCount(){
+        task_count.textContent
+      }
+
+       taskInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") addTaskBtn.click();
+    });
+    </script>
+  </body>
+</html>
