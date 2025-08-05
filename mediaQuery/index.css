@@ -1,0 +1,14 @@
+.text_container{
+    background-color: rgb(176, 243, 250);
+}
+@media (min-width:480px) and (max-width:760px){
+    .text_container{
+        background-color: blue;
+    }
+}
+
+@media (min-width:761px) and (max-width:1020px){
+    .text_container{
+        background-color: yellow;
+    }
+}
