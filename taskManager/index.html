@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"
+    />
+    <style>
+      .completed {
+        text-decoration: line-through;
+        color: gray;
+      }
+      #taskList {
+        list-style: none;
+        padding: 0;
+      }
+      #taskList li {
+        padding: 8px;
+        margin: 5px 0;
+        background: #eee;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Task Manager</h2>
+    <input type="text" name="" id="taskInput" placeholder="Enter Task">
+    <button id="addTaskBtn">Add Task</button>
+    <button id="toggleTasks">Toggle Task</button>
+    <p>Total tasks : <span id="taskCount">0</span></p>
+
+    <ul id="taskList"></ul>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
